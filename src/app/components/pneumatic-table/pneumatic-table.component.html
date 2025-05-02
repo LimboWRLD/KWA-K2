@@ -1,0 +1,11 @@
+<p>pneumatic-table works!</p>
+<div>
+    <label for="idVozila">Izaberite vozilo:</label>
+    <select [(ngModel)]="selectedVoziloId" (change)="onVoziloChange()">
+      <option *ngFor="let vozilo of dataVozila" [value]="vozilo.id">{{ vozilo.registarskiBroj }}</option>
+    </select>
+    <button (click)="reset()">Reset</button>
+  </div>
+<app-generic-table [data]="filteredListPneumatic" (removeEvent)="remove($event)" (editEvent)="edit($event)"></app-generic-table>
+
+<router-outlet></router-outlet>

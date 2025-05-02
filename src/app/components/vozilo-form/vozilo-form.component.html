@@ -1,0 +1,2 @@
+<p>vozilo-form works!</p>
+<app-dynamic-form [questions]="VoziloQuestions$ | async" [model]="selectedVozilo" (submitEvent)="save($event)"></app-dynamic-form>

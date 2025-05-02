@@ -1,0 +1,2 @@
+<p>pneumatic-form works!</p>
+<app-dynamic-form [questions]="PneumaticQuestions$ | async" [model]="selectedPneumatic" (submitEvent)="save($event)"></app-dynamic-form>
