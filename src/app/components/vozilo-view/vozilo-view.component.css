@@ -1,0 +1,51 @@
+.vehicle-container {
+    display: grid;
+    grid-template-areas:
+      "tire1 car tire2"
+      "tire3 car tire4";
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+  }
+  
+  .tire-slot {
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+  }
+  
+  .car-body {
+    grid-area: car;
+    width: 150px;
+    height: 150px;
+    background-color: #d4d4d4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    flex-direction: column;
+  }
+
+  .pneumatic-item {
+    background-color: #e0e0e0;
+    padding: 6px;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .prazno {
+    color: gray;
+    font-style: italic;
+  }
+  
+  .lista-pneumatika {
+    display: flex;
+    gap: 10px;
+  }
+  

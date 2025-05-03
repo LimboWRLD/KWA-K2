@@ -43,8 +43,6 @@ export class PneumaticTableComponent {
 
   onVoziloChange(){
     this.filteredListPneumatic = this.dataPneumatic;
-    console.log(this.selectedVoziloId);
-    
     this.filteredListPneumatic = this.filteredListPneumatic.filter(p => p.idVozila == this.selectedVoziloId);
   }
   

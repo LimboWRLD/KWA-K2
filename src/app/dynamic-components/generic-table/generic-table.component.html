@@ -22,7 +22,7 @@
                     <td>{{getValue(row, column)}}</td>
                 }
                 <td>
-                    <a [routerLink]="[row.id]"></a>
+                    <a [routerLink]="['view',row.id]">Prikazi</a>
                     <button (click)="remove(row.id)">Ukloni</button>
                     <button (click)="update(row.id)">Izmeni</button>
                 </td>

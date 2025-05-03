@@ -22,7 +22,7 @@ export class VoziloTableComponent implements OnInit{
   }
 
   remove(id: any): void{
-    this.httpService.delete("vozilo", id).subscribe(() => {
+    this.httpService.delete("vozila", id).subscribe(() => {
       this.dataVozilo = this.dataVozilo.filter(item => item.id !== id);
       this.filteredListVozilo = this.filteredListVozilo.filter(item => item.id !== id);
     });

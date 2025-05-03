@@ -1,0 +1,73 @@
+<div class="vehicle-container">
+  <div class="tire-slot" cdkDropList #leftTopPneumaticList = "cdkDropList" [cdkDropListData]="leftTopPneumatic" [cdkDropListConnectedTo]="[sviPneumaticiList]"
+       (cdkDropListDropped)="drop($event)">
+       @if (leftTopPneumatic[0]) {
+        <div class="pneumatic-item" cdkDrag>
+            {{getPneumatikDetails(leftTopPneumatic[0])}}
+        </div>
+      } @else {
+        <div class="pneumatic-item">
+          Nije ugrađen
+        </div>
+      }
+  </div>
+
+  <div class="tire-slot" cdkDropList #rightTopPneumaticList = "cdkDropList" [cdkDropListData]="rightTopPneumatic" [cdkDropListConnectedTo]="[sviPneumaticiList]"
+       (cdkDropListDropped)="drop($event)">
+       @if (rightTopPneumatic[0]) {
+        <div class="pneumatic-item" cdkDrag>
+            {{getPneumatikDetails(rightTopPneumatic[0])}}
+        </div>
+      } @else {
+        <div class="pneumatic-item">
+          Nije ugrađen
+        </div>
+      }
+  </div>
+
+  <div class="car-body">
+    <div>
+        <span>{{ vozilo?.registarskiBroj }}</span>
+    </div>
+    <div>
+        <span>{{ vozilo?.imeVlasnika }}</span>
+    </div>
+    <div>
+        {{ vozilo?.prezimeVlasnika }}
+    </div>
+  </div>
+
+  <div class="tire-slot" cdkDropList #leftBottomPneumaticList = "cdkDropList" [cdkDropListData]="leftBottomPneumatic" [cdkDropListConnectedTo]="[sviPneumaticiList]"
+       (cdkDropListDropped)="drop($event)">
+       @if (leftBottomPneumatic[0]) {
+        <div class="pneumatic-item" cdkDrag>
+            {{getPneumatikDetails(leftBottomPneumatic[0])}}
+        </div>
+      } @else {
+        <div class="pneumatic-item">
+          Nije ugrađen
+        </div>
+      }
+  </div>
+
+  <div class="tire-slot" cdkDropList #rightBottomPneumaticList = "cdkDropList" [cdkDropListData]="rightBottomPneumatic" [cdkDropListConnectedTo]="[sviPneumaticiList]"
+       (cdkDropListDropped)="drop($event)">
+       @if (rightBottomPneumatic[0]) {
+        <div class="pneumatic-item" cdkDrag>
+            {{getPneumatikDetails(rightBottomPneumatic[0])}}
+        </div>
+      } @else {
+        <div class="pneumatic-item">
+          Nije ugrađen
+        </div>
+      }
+  </div>
+</div>
+
+<h3>Dostupni pneumatici</h3>
+<div class="lista-pneumatika" cdkDropList #sviPneumaticiList="cdkDropList" [cdkDropListData]="sviPneumatici"
+     [cdkDropListConnectedTo]="[leftTopPneumaticList, rightTopPneumaticList, leftBottomPneumaticList, rightBottomPneumaticList]" (cdkDropListDropped)="drop($event)">
+  <div class="pneumatic-item" *ngFor="let p of sviPneumatici" cdkDrag>
+    {{getPneumatikDetails(p)}}
+  </div>
+</div>

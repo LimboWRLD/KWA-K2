@@ -22,7 +22,6 @@ export class LoginService {
     return this.httpService.post<any>("http://localhost:3000/login", user).pipe(
       tap(x  => {
         this.token = x["token"];
-        console.log(x);
         localStorage.setItem("token", this.token);
         this.router.navigate(["pneumatici"]);
       })
@@ -39,8 +38,6 @@ export class LoginService {
 
   getRoles(){
     let user = this.getUser();
-    console.log("User", user);
-    
     if(user){
       return user.roles;
     }
@@ -49,8 +46,6 @@ export class LoginService {
   validateRoles(requiredRoles: string[]): boolean {
     const userRoles = this.getRoles();
     if (!userRoles) return false;
-    console.log("Ime role", requiredRoles.some(role => userRoles.includes(role)));
-    
     return requiredRoles.some(role => userRoles.includes(role));
   }
 }
