@@ -44,6 +44,9 @@ export class DynamicFormComponent implements OnInit {
 
   resetForm(){
     this.form.reset;
-    this.router.navigate(['../'], { relativeTo: this.route });
+    const basePath = this.route.snapshot.url[0]?.path;
+    if (basePath) {
+      this.router.navigate(['/', basePath]);
+    }
   }
 }
