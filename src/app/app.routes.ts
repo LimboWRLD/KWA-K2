@@ -49,6 +49,10 @@ export const routes: Routes = [
       component: PneumaticFormComponent,
       data: { requiredRoles: ["ROLE_ADMIN", "ROLE_USER"] },
       canActivate: [authGuard]
+    },
+    {
+      path: "**",
+      component: LoginFormComponent
     }
   ];
   

@@ -4,6 +4,7 @@ import {FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {DynamicFormQuestionComponent} from '../dynamic-form-question/dynamic-form-question.component';
 import {QuestionBase} from '../../models/questions/question-base';
 import {QuestionControlService} from '../../service/question-control/question-control.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
@@ -20,7 +21,7 @@ export class DynamicFormComponent implements OnInit {
   @Output()
   submitEvent = new EventEmitter<any>();
 
-  constructor(private qcs: QuestionControlService) {}
+  constructor(private qcs: QuestionControlService, private router: Router, private route: ActivatedRoute) {}
   ngOnInit() {
     this.buildForm();
   }
@@ -36,10 +37,13 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitEvent.emit(this.form.getRawValue());
+    if(this.form.valid){
+      this.submitEvent.emit(this.form.getRawValue());
+    }
   }
 
   resetForm(){
     this.form.reset;
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }
